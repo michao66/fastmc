@@ -1,6 +1,7 @@
 package cn.fastmc.core.cache;
 
 import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.constructs.web.filter.SimplePageCachingFilter;
 
 /**
  * 页面高速缓存过滤器
