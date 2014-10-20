@@ -34,7 +34,6 @@
 		<cxf.version>2.7.0</cxf.version>
 		<activemq.version>5.7.0</activemq.version>
 		<quartz.version>2.2.1</quartz.version>
-		<ehcache.version>2.6.2</ehcache.version>
 		<spymemcached.version>2.8.9</spymemcached.version>
 		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
 		<jolokia.version>1.0.6</jolokia.version>
@@ -58,6 +57,7 @@
 		<mysql.version>5.1.21</mysql.version>
 		<activiti.version>5.14</activiti.version>
 		<activiti.engine.version>5.14</activiti.engine.version>
+		<ehcache.version>2.6.6</ehcache.version>
 
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -322,6 +322,11 @@
 				<artifactId>ehcache-core</artifactId>
 				<version>${ehcache.version}</version>
 			</dependency>
+		    <dependency>
+			      <groupId>net.sf.ehcache</groupId>  
+			      <artifactId>ehcache-web</artifactId>  
+			      <version>2.0.4</version>
+			</dependency>
 			<!-- CACHE end -->
 
 			<!-- jolokia Restful JMX begin -->
@@ -490,7 +495,7 @@
 				<version>2.1.1</version>
 			</dependency>
 			<!-- GENERAL UTILS end -->
-
+		
              <dependency>
 				<groupId>org.codehaus.jackson</groupId>
 				<artifactId>jackson-core-asl</artifactId>
