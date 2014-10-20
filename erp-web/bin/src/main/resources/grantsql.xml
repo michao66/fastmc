@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+  <globalsql id = "userWhere">
+       <where>
+        <if test="loginName != null">  
+            AND loginName = #{loginName}   
+        </if> 
+       </where>
+  </globalsql>
+  <select id="userInfo_pages" entity="com.slsoft.auth.entify.User">
+        from User 
+       <include refid = "userWhere"/> 
+  </select>
+  
+   <select id="userInfo_count" entity="com.slsoft.auth.entify.User">
+       select count(*) from User 
+       <include refid = "userWhere"/> 
+  </select>
+ 
+</sqls>
+

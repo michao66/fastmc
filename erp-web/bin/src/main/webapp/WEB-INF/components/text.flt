@@ -1,0 +1,7 @@
+<tr class="noborder">
+     <td colspan="2" class="required"><label for="site_name">网站名称:</label></td>
+</tr>
+<tr class="noborder">
+   <td class="vatop rowform"><input id="site_name" name="site_name" value="" class="txt" type="text" /></td>
+ <td class="vatop tips"><span class="vatop rowform">网站名称，将显示在前台顶部欢迎信息等位置</span></td>
+</tr>

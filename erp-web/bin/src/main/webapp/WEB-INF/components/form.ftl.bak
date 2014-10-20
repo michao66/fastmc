@@ -1,0 +1,3 @@
+<form method="post" enctype="multipart/form-data"  id="${tag.id}" action="${base}${tag.saveAction}.action">
+<table class="table tb-type2">
+<tbody>

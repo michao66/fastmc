@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+
+  <select id="bttempletePage">
+      SELECT distinct project,(select name from cms_bt_btxm bt where bt.id = bt_field.project ) name FROM cms_bt_field bt_field
+  </select>
+  <select id="bttempleteCount">
+      SELECT count(distinct project) FROM cms_bt_field
+  </select>
+  
+  <select id="bttempleteCount">
+      SELECT count(distinct project) FROM cms_bt_field
+  </select>
+  <globalsql id="whereBTXX">
+		<where>
+			<if test="cardId != null">AND cardcode = #{cardcode}</if><!--身份证号-->
+			<if test="zxqyId != null">AND departid = #{zxqyId}</if><!--区域-->
+			<if test="projectId != null">AND project = #{projectId}</if><!--项目类型-->
+			<if test="nameText != null and nameText != ''">AND name like '${nameText}%'</if><!--姓名-->
+		</where>
+  </globalsql>
+  <select id="btxxPage" entity="com.slsoft.btinfo.entify.BTXX">
+  	  select id
+      <if test="name != null and name != ''">,name</if>
+  	  <if test="cardcode != null and cardcode != ''">,cardcode</if>
+  	  <if test="departid != null and departid != ''">,(select name from cms_bt_xzqy xz where xz.id=xx.departid) departid </if>
+  	  <if test="project != null and project != ''">,(select name from cms_bt_btxm xm where xm.id=xx.project) project </if>
+  	  <if test="nation != null and nation != ''">,nation</if>
+  	  <if test="hukou != null and hukou != ''">,hukou</if>
+  	  <if test="address != null and address != ''">,address</if>
+  	  <if test="phone != null and phone != ''">,phone</if>
+  	  <if test="postcode != null and postcode != ''">,postcode</if>
+  	  <if test="bank != null and bank != ''">,bank</if>
+  	  <if test="bankaccount != null and bankaccount != ''">,bankaccount</if>
+  	  <if test="year != null and year != ''">,year</if> 
+      <if test="minimumcode != null and minimumcode != ''">,minimumcode</if>
+      <if test="money != null and money != ''">,nvl(money,0)  money</if> 
+      <if test="population != null and population != ''">,nvl(population,0) population </if> 
+      <if test="summoney != null and summoney != ''">,nvl(summoney,0) summoney</if> 
+      <if test="field1 != null and field1 != ''">,nvl(field1,0) field1</if> 
+      <if test="field2 != null and field2 != ''">,nvl(field2,0) field2</if> 
+      <if test="field3 != null and field3 != ''">, nvl(field3,0)field3</if> 
+      <if test="field4 != null and field4 != ''">,nvl(field4,0) field4</if> 
+      <if test="field15 != null and field15 != ''">, field15</if>  
+      <if test="field16 != null and field16 != ''">,field16</if> 
+      <if test="field17 != null and field17 != ''">,field17</if>
+      <if test="field18 != null and field18 != ''">,field18</if>
+      <if test="field19 != null and field19 != ''">,field19</if>
+      from cms_bt_btxx xx
+      <include refid="whereBTXX" />
+  </select>
+<!--  
+  <select id="btxxPage" entity="com.slsoft.btinfo.entify.BTXX">
+  	  select id
+      <if test="name != null and name != ''">,name</if>
+  	  <if test="cardcode != null and cardcode != ''">,cardcode</if>
+  	  <if test="departid != null and departid != ''">,(select name from cms_bt_xzqy xz where xz.id=xx.departid) departid </if>
+  	  <if test="project != null and project != ''">,(select name from cms_bt_btxm xm where xm.id=xx.project) project </if>
+  	  <if test="nation != null and nation != ''">,nation</if>
+  	  <if test="hukou != null and hukou != ''">,hukou</if>
+  	  <if test="address != null and address != ''">,address</if>
+  	  <if test="phone != null and phone != ''">,phone</if>
+  	  <if test="postcode != null and postcode != ''">,postcode</if>
+  	  <if test="bank != null and bank != ''">,bank</if>
+  	  <if test="bankaccount != null and bankaccount != ''">,bankaccount</if>
+  	  <if test="year != null and year != ''">,year</if> 
+      <if test="minimumcode != null and minimumcode != ''">,minimumcode</if>
+      <if test="money != null and money != ''">,money</if> 
+      <if test="population != null and population != ''">,population</if> 
+      <if test="summoney != null and summoney != ''">,summoney</if> 
+      <if test="field1 != null and field1 != ''">,field1</if> 
+      <if test="field2 != null and field2 != ''">,field2</if> 
+      <if test="field3 != null and field3 != ''">,field3</if> 
+      <if test="field4 != null and field4 != ''">,field4</if> 
+      <if test="field5 != null and field5 != ''">,field5</if>  
+      <if test="field6 != null and field6 != ''">,field6</if> 
+      <if test="field7 != null and field7 != ''">,field7</if>
+      <if test="field8 != null and field8 != ''">,field8</if>
+      <if test="field8 != null and field8 != ''">,field9</if>
+      from cms_bt_btxx xx
+      <include refid="whereBTXX" />
+  </select>-->
+  <select id="btxxCount" >
+      SELECT count(*) FROM cms_bt_btxx
+	  <include refid="whereBTXX" />
+  </select>
+    <select id="areaNumChart">
+     select sum(t.money) data,x.name  from cms_bt_btxx t inner join cms_bt_xzqy x on x.id = substr(t.departid,0,6)
+     where  project = #{projectId}
+     group by x.name
+  </select>
+  
+</sqls>
+

@@ -1,0 +1,14 @@
+<div class="list">
+<table class="listTable">
+<tr><#rt/>
+<th class="check"><#rt/>
+<input type="checkbox" class="allCheck" /><#rt/>
+</th>
+<#list tag.heads as bean>
+<th><#rt/>
+<span class="sort" name="${bean.id?default("")?html}">${bean.title?default("")?html}</span>
+</th><#rt/>
+</#list>
+</tr>
+</table>
+</div>

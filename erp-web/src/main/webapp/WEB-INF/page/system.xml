@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="system">
+<form id="privilegeForm"  column="2"
+      saveAction="auth/privilege/doCreate.action"
+	  entity="com.slsoft.auth.entify.Privilege">
+	  	<validate id="title" value="*" message="名称不能为空"/>
+	    <validate id="orderRank" value="Z" message="排序号只能为整数"/>
+	    
+	    <formItem label="分类" type="text" id="category" />
+	    <formItem label="名称" type="text" id="title" />
+
+		<combination label="类型" >
+		 <list>
+		    <formItem label="菜单" type="radio" id="type"  >
+				<attribute value="value=MENU|check=checked" />
+			</formItem>
+			<formItem label="按钮" type="radio" id="type"  >
+				<attribute value="value=BTN" />
+			</formItem>
+			<formItem label="URL" type="radio" id="type"  >
+				<attribute value="value=URL" />
+			</formItem>
+		  </list>  
+		</combination>
+
+		<formItem label="代码" type="text" id="code" />
+		<formItem label="排序号" type="text" id="orderRank">
+			 <attribute value="value=100|class=span12 tip|title=排序号越大则越先URL匹配" />
+		</formItem>
+		<formItem label="描述" type="text" id="description"/>
+		<formItem label="匹配URL列表" type="text" id="url" singlecolumn="true">
+		  <attribute value="class=span12 tip|title=一个权限关联多个URL,一行一个URL系统默认按照左匹配规则验证，如/abc表示/abc**"/>
+		</formItem>
+		<formItem  type="hidden" id="id"/>	
+</form>
+
+    <!-- 用户FORM -->
+    <form id="userForm"  column="2"
+      saveAction="auth/user/doCreate.action"
+      entity="com.slsoft.code.admin.entify.User">
+	  	<validate id="signinid" value="*" message="登录帐号不能为空"/>
+	    <validate id="nick" value="*" message="姓名不能为空"/>
+
+		  <formItem label="登录帐号" type="text" id="signinid" >
+			 <attribute value="placeholder=创建之后不可修改，请仔细填写"/>
+		  </formItem>
+	  <formItem label="姓名" type="text" id="nick" />
+	  <formItem label="电子邮件" type="text" id="email" />
+	  <formItem label="联系电话" type="text" id="mobilePhone" />
+	  <formItem label="设置密码" type="password" id="newpassword" /> 
+	  <formItem label="确认密码" type="password" id="cfmpassword" /> 
+      <combination label="启用状态" >
+		 <list>
+		    <formItem label="是" type="radio" id="enabled"  >
+				<attribute value="value=true|check=checked" />
+			</formItem>
+			<formItem label="否" type="radio" id="enabled"  >
+				<attribute value="value=false" />
+			</formItem>
+		  </list>  
+		</combination>
+		<formItem label="账号失效日期" type="date" id="accountExpireTime" /> 
+		<formItem  type="hidden" id="id"/>	
+		<formItem  type="hidden" id="uid"/>	
+	</form>
+     <!-- 角色FORM -->
+     <form id="roleForm" 
+      saveAction="auth/role/doCreate.action"
+      entity="com.slsoft.code.admin.entify.Role">
+        <validate id="code" value="*" message="代码"/>
+	    <validate id="title" value="*" message="名称"/>
+		 
+         <formItem label="代码" type="text" id="code" />
+	     <formItem label="名称" type="text" id="title" />
+		 <formItem label="描述" type="text" id="description"/>
+		 <formItem  type="hidden" id="id"/>	
+	  </form>
+	  <!-- 修改密码 -->
+      <form id="profilePasswdForm" saveAction="admin/profile/doPasswd.action">
+         <validate id="oldpasswd"  value="*"   message="原始密码不能为空"/>
+         <validate id="newpasswd"  value="*"   message="新密码不能为空"/>
+         <validate id="cfmpassword" value="*|equalTo:#newpasswd"   message="密码不能为空|两次输入不一致"/>
+         <formItem label="原始密码" type="password" id="oldpasswd" /> 
+         <formItem label="设置密码" type="password" id="newpasswd" /> 
+	     <formItem label="确认密码" type="password" id="cfmpassword" />
+      </form>
+</page>	

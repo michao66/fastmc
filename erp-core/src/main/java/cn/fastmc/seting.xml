@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+<form id ="" saveAction="" viewAction="" entity="">
+ <formItem label=""  type=""  >
+    <attribute>
+         <![CDATA[
+           id=password1|editable=true|width=200
+         ]]>
+    </attribute>
+    <validate>
+         <![CDATA[
+           {"required:true"}
+         ]]>
+    </validate>
+ </formItem>
+
+</form>
+ </page>

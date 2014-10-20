@@ -1,0 +1,146 @@
+/* CSS Document */
+/*
+The dragon software co., LTD. All rights reserved
+Web:http://www.wslsoft.com.cn/
+TEl：400-779-1819
+Add：郑州市国家高新技术开发区科技创业广场2号楼1层A131
+*/
+/*---reset css---*/
+body, ul, ol, li, img, p, h1, h2, h3, h4, dl, dd, form, input, select, textarea, select, em { padding: 0; margin: 0; }
+body { background: url(../../img/HnbtNew/bg.jpg) repeat-x center top; font-size: 12px; color: #333333; }
+input { vertical-align: middle; }
+address, caption, em, strong { font-style: normal; font-weight: normal; }
+table { border-collapse: collapse; border: 0; margin: 0; padding: 0; }
+ul, ol, li { list-style: none; }
+img { border: none; }
+h1, h2, h3 { font-weight: normal }
+a { text-decoration: none; outline: none; color: #333 }
+a:hover { color: #E43905; }
+/*鼠标经过时样式*/
+a:focus { }
+.left { float: left; }
+.right { float: right }
+.clear{ clear:both;}
+.wapper{ width:1000px; overflow:hidden; margin:0 auto;}
+
+
+.header{}
+.header .logo{ margin:23px 0 6px 16px;}
+.menu{ width:1000px; height:35px; line-height:35px; background:url(../../img/HnbtNew/menu_bg.gif) no-repeat;}
+.menu a{ font-size:1.2em; font-weight:bold; color:#fff;}
+.menu a:hover{ color:#f6ff00}
+.menu ul{ float:left; margin-left:22px;}
+.menu li{ display:block; float:left; margin-right:33px;}
+.menu li a{}
+.menu span{ float:right; margin-right:20px;}
+
+.homemain{margin-top:12px;}
+.homemain .search{ width:250px; height:220px; background:#fff;}
+.homemain .search h2{ margin-top:12px;}
+.homemain .search img{ margin-left:15px;}
+.homemain .search .input-text{ float:left; width:151px; height:21px; margin:5px 0 5px 15px; line-height:21px; border:1px solid #dfc887; background:#f6f6f5;}
+.homemain .search .input-btn{ float:left; margin-left:7px; width:53px; height:23px; margin-top:5px; line-height:23px; background:url(../../img/HnbtNew/searchbtn_bg.gif) repeat-x; border:0; font-size:1em; font-weight:bold; color:#fff; cursor:pointer;}
+
+
+
+.homemain .roster{ width:480px; height:220px; background:#fff; margin:0 10px;}
+.homemain .roster h2{ margin:10px 0 0 10px;}
+.homemain .roster h2 span{ float:right; font-family:Arial, Helvetica, sans-serif; font-size:0.6em; margin-right:10px;}
+.homemain .roster h2 a{ color:#b98e11;}
+.roster_list{ margin:0 10px; line-height:30px;}
+.roster_list li{ border-bottom:1px solid #eadfbf; background:url(../../img/HnbtNew/li_icon1.gif) no-repeat left center; padding-left:10px;}
+.roster_list li span{ float:right; color:#9a9a9a;}
+.roster_list em{ margin-right:10px;}
+.roster_list em a{ color:#ab7f00;}
+.roster_list em a:hover{ text-decoration:underline;}
+.homemain .ad{ width:250px; height:265px;}
+.homemain .ad2{width:250px; height:74px; margin-top:10px;}
+
+
+.homemain .tablebox{ width:720px; overflow:hidden; background:#fff; min-height:250px; padding:10px;}
+.homemain .tablebox table{ border-top:1px solid #ddd;border-left:1px solid #ddd; width:100%;}
+.homemain .tablebox th,.homemain .tablebox td{ border-bottom:1px solid #ddd;border-right:1px solid #ddd; line-height:1.8em; padding:5px; font-size:1.2em;}
+.homemain .tablebox th{ background:#f0f0f0;}
+
+
+
+.tab { width:1000px; position:relative; }
+.tab .nav { position:absolute; top:-35px;}
+.tab .nav ul { display:block; width:723px; height: 36px; overflow: hidden;  border-left:1px solid #ddd; border-right:1px solid #ddd;}
+.tab .nav li { float: left; width:180px; height: 36px; line-height: 36px; text-align:center; margin-right:1px; background:#ad8100; border-top:1px solid #ad8100;}
+.tab .nav li a { font-size:1.2em;  font-weight: bold; color:#fff; }
+.tab .nav .active { background:#fff; border-top:1px solid #ddd;}
+.tab .nav .active a { color: #5c5c5c; font-weight: bold; }
+.tab .content { width:998px; overflow: hidden; border:1px solid #ddd;}
+.tab .box { margin: 0 10px; display: none; }
+.tab .intro{ background:url(../../img/HnbtNew/dotted_1.gif) repeat-x bottom; padding-bottom:8px; margin-bottom:10px;}
+.tab .intro strong{ font-weight:bold; line-height:30px;}
+.tab .intro p{ line-height:1.6em; text-indent:2em;}
+
+.tab .news_list{ width:296px; background:url(../../img/HnbtNew/dotted_2.gif) repeat-y right; float:left; margin-right:45px; margin-bottom:10px;}
+.tab .news_list h2{ font-size:1.2em; font-weight:bold; line-height:2.2em;}
+.tab .news_list ul{ line-height:1.8em;}
+
+
+
+
+.tab2 { width:740px; }
+.tab2 .nav {}
+.tab2 .nav ul { display:block; width:740px; height: 36px; overflow: hidden; background:#fff; }
+.tab2 .nav li { float: left; width:184px; height: 36px; line-height: 36px; text-align:center; margin-right:1px; background:#ad8100; border-top:1px solid #ad8100;}
+.tab2 .nav li a { font-size:1.2em;  font-weight: bold; color:#fff; }
+.tab2 .nav .active { background:#fff; border-top:1px solid #ddd;}
+.tab2 .nav .active a { color: #5c5c5c; font-weight: bold; }
+.tab2 .content { width:740px; overflow: hidden;}
+.tab2 .box { margin: 0 10px; display: none; }
+.tab2 .box ol{}
+.tab2 .box li{ margin-top:10px;}
+
+
+
+.footer{ width:980px; height:30px; line-height:30px; margin-top:10px; color:#fff; font-size:1em; background:#b38500; padding:0 10px;}
+.footer span{ float:right;}
+.footer a{ color:#fff;}
+.footer a:hover{ font-weight:bold;}
+
+
+.list,.content{ width:740px;overflow:hidden; background:#fff;}
+.list .post,.content .post{ margin:10px 10px 0 10px; padding-bottom:10px; color:#ad8100; background:url(../../img/HnbtNew/dotted_1.gif) repeat-x bottom;}
+.list .post a,.content .post a{ color:#ad8100;}
+.content .tit{ text-align:center; line-height:50px; font-size:2em; font-family:"黑体"; color:#ad8100;}
+.content .info{ margin:0 10px; text-align:center; color:#666; line-height:30px; background:url(../../img/HnbtNew/dotted_1.gif) repeat-x bottom;}
+.content .cont{ min-height:300px;margin:10px; line-height:1.8em;}
+
+
+.fy{ margin:10px;}
+
+
+.fastBtn{ display:block; width:700px; overflow:hidden; padding:5px; border:1px solid #ddd; margin:0 auto;}
+.fastBtn .btn{ width:100px; font-size:1.2em; font-weight:bold; text-align:center; background:#ad8100; padding:10px; margin:10px; line-height:1.4em; }
+.fastBtn .btn a{ color:#fff;}
+.fastBtn .description{ width:520px; margin:0 10px 10px 10px;}
+.fastBtn .description strong{ font-weight:bold; line-height:3em;}
+.fastBtn .description p{ line-height:1.6em; text-indent:2em;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

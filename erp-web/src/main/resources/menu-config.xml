@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <Menus>
+
+  <Menu id="10" title="文件库管理">
+   <Item id="1001" title="文件资源" icon="" url="admin/nav/fileResource/list.action" />
+ </Menu>
+ <Menu id="11" title="项目管理">
+   <Item id="1101" title="项目备案" icon="" url="admin/nav/tb_project/list.action" isShow="true"/>
+   <Item id="1102" title="项目审核" icon="" url="admin/nav/tb_project/shlist.action" isShow="true"/>
+   <Item id="1103" title="项目进度管理" icon="" url="admin/nav/project_xmjd/list.action" isShow="true"/>
+   <Item id="1105" title="项目延期申请" icon="" url="admin/nav/tb_project/xmyqlist.action" isShow="true"/>
+   <Item id="1106" title="项目延期申请审核" icon="" url="admin/nav/tb_project/shxmyqlist.action" isShow="true"/>
+   <Item id="1104" title="项目综合查询" icon="" url="admin/nav/tb_project/zhcxlist.action" isShow="true"/>
+ </Menu>
+   <Menu id="12"  title="资金管理">
+      <Item id="1201" title="资金申请" icon="" url="admin/nav/amount/list.action" isShow="true"/>
+      <Item id="1202" title="资金申请审核" icon="" url="admin/nav/amount/zjshlist.action" isShow="true"/>
+      <Item id="1203" title="资金拨付" icon="" url="admin/nav/amount/zjbflist.action" isShow="true"/> 
+      <Item id="1204" title="资金到位" icon="" url="admin/nav/priceArrive/list.action" />
+
+ </Menu>
+ <Menu id="13" title="资金转移">
+   <Item id="1301" title="资金转移" icon="" url="admin/nav/project_zjzy/list.action" isShow="true"/>
+   <Item id="1302" title="资金转移审核" icon="" url="admin/nav/project_zjzy/shlist.action" isShow="true"/>
+    <Item id="1303" title="保障金管理" icon="" url="admin/nav/tb_project_bzj/list.action" isShow="true"/>
+ </Menu>
+ <Menu id="14" title="招标管理">
+ 	<Item id="1401" title="招标公告" icon="" url="admin/nav/zbgg/list.action" isShow="true"/>
+ 	<Item id="1402" title="中标公告" icon="" url="admin/nav/tb_project_zhongbiao/list.action" isShow="true"/>
+ </Menu>
+ <Menu id="15"  title="系统设置">
+      <Item id="1501" title="机构管理" icon="" url="admin/nav/org/list.action" isShow="true"/>
+	  <Item id="1502" title="部门管理" icon="" url="admin/nav/department/list.action" isShow="true"/>
+      <Item id="1503" title="用户管理" icon="" url="admin/nav/user/list.action" isShow="true"/>
+      <Item id="1504" title="角色管理" icon="" url="admin/nav/role/list.action" isShow="true"/>
+      <Item id="1505" title="项目类型" icon="" url="admin/nav/project/list.action" isShow="true"/>
+      <Item id="1506" title="系统设置" icon="" url="admin/setting/edit.action" isShow="true"/>
+      <Item id="1507" title="拨付对象" icon="" url="admin/nav/receiveunit/list.action" />
+      <!-- 
+      <Item id="1508" title="文件资源" icon="" url="admin/nav/fileResource/list.action" />
+       -->
+      <Item id="1508" title="系统参数" icon="" url="admin/nav/sparam/list.action" />
+      <Item id="1509" title="更新预警" icon="" url="admin/nav/updatewarning/list.action" />
+ </Menu>
+ 
+  <Menu id="16" title="统计报表">
+   <Item id="1601" title="系统日志" icon="" url="admin/nav/tz_log/log_list.action" isShow="true"/>
+   <Item id="1602" title="招标公告" icon="" url="admin/nav/tz_log/zbgg_list.action" isShow="true"/>
+   <Item id="1603" title="中标公告" icon="" url="admin/nav/tz_log/zhongbiao_list.action" isShow="true"/>
+   <Item id="1604" title="保障金信息" icon="" url="admin/nav/tz_log/bzj_list.action" isShow="true"/>
+   <Item id="1605" title="项目日志" icon="" url="admin/nav/tz_log/project_his_list.action" isShow="true"/>
+   <Item id="1606" title="资金申请明细表" icon="" url="admin/nav/analyse/zjsqmxReport.action" isShow="true"/>
+
+
+   <Item id="1607" title="项目分类明细表" icon="" url="admin/nav/analyse/xmflmxReport.action" isShow="true"/>
+   <Item id="1608" title="项目分类统计表" icon="" url="admin/nav/analyse/xmfltjReport.action" isShow="true"/>
+   <Item id="1609" title="资金拨付明细表" icon="" url="admin/nav/analyse/zjbfmxReport.action" isShow="true"/>
+   <Item id="1610" title="资金转移明细表" icon="" url="admin/nav/analyse/zjzyReport.action" isShow="true"/>
+   <Item id="1611" title="资金未到位项目" icon="" url="admin/nav/analyse/zzwdwReport.action" isShow="true"/>
+   <Item id="1612" title="资金到位明细表" icon="" url="admin/nav/analyse/zjdwmxReport.action" isShow="true"/>
+   <Item id="1613" title="资金滞留项目表" icon="" url="admin/nav/analyse/zjzlReport.action" isShow="true"/>
+   <Item id="1614" title="项目公示一览表" icon="" url="admin/nav/analyse/xmgsReport.action" isShow="true"/>
+   <Item id="1615" title="投资依据统计表" icon="" url="admin/nav/analyse/tzyjReport.action" isShow="true"/>
+ </Menu>
+ 
+  <Menu id="18" title="风险预警">
+    <Item id="1801" title="资金未到位预警" icon="" url="admin/nav/warning/zjwdwyjlist.action" isShow="true"/>   
+    <Item id="1802" title="项目到期预警" icon="" url="admin/nav/warning/xmcqlist.action" isShow="true"/>
+    <Item id="1803" title="滞留资金预警" icon="" url="admin/nav/warning/zlzjlist.action" isShow="true"/>
+    <Item id="1804" title="资金未拨付预警" icon="" url="admin/nav/warning/zjwbflist.action" isShow="true"/>
+ </Menu>
+
+ <Menu id="17" title="图形报表">
+   <Item id="1701" title="项目数量分布图" icon="" url="admin/nav/chart/project_count.action" isShow="true"/>   
+   <Item id="1702" title="资金使用情况分布图" icon="" url="admin/nav/chart/zjjk.action" isShow="true"/>
+
+ </Menu>
+ </Menus>

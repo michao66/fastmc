@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="system">
+<form id="privilegeForm"  column="2"
+      saveAction="auth/privilege/doCreate/addPrivilege.action"
+	  
+	  entity="com.slsoft.code.admin.entify.Privilege">
+	  	<validate id="title" value="*" message="名称不能为空"/>
+	    <validate id="orderRank" value="Z" message="排序号只能为整数"/>
+	   <formItem label="名称" type="text" id="title" />
+
+		<combination label="类型" >
+		 <list>
+		    <formItem label="菜单" type="radio" id="type"  >
+				<attribute value="value=0|check=checked" />
+			</formItem>
+			<formItem label="按钮" type="radio" id="type"  >
+				<attribute value="value=1" />
+			</formItem>
+			<formItem label="URL" type="radio" id="type"  >
+				<attribute value="value=2" />
+			</formItem>
+		  </list>  
+		</combination>
+		
+		<formItem label="排序号" type="text" id="orderRank">
+		    <attribute value="value=100|class=span12 tip|title=排序号越大则越先URL匹配" />
+		</formItem>
+	    <formItem label="描述" type="text" id="description"/>
+		<formItem label="匹配URL列表" type="text" id="url" singlecolumn="true">
+		<formItem  type="hidden" id="parent"/>
+		<formItem  type="hidden" id="id"/>	
+		</formItem>
+		
+</form>
+</page>	

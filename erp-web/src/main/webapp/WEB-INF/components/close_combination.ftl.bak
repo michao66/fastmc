@@ -1,0 +1,2 @@
+</td><#rt/><#if tag.caption??>${tag.caption}</#if>
+ <label for="${tag.id?default("")?html}"></label>

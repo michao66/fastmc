@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent> 
+	<artifactId>newerp</artifactId> 
+	<groupId>com.mich.erp</groupId> 
+	<version>1.0-SNAPSHOT</version> 
+  </parent> 
+  
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>erp-web</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>erp-web</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+	<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+	</dependency>
+		
+
+  
+	
+	<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+			<dependency>
+			<groupId>com.mich.erp.generator</groupId>
+			<artifactId>erp-generator</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+		 <dependency>
+			<groupId>com.mich.erp.core</groupId>
+			<artifactId>erp-core</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+  </dependencies>
+	<build>  
+   <finalName>erp-web</finalName>
+   <plugins>   
+        <!-- compiler插件, 设定JDK版本 -->
+    	
+
+		<!-- resource插件, 设定编码 -->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-resources-plugin</artifactId>
+			 <version>2.4.3</version>
+			 <configuration>
+					 <encoding>UTF-8</encoding>
+			 </configuration>
+		</plugin>
+
+		<!-- clean插件-->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-clean-plugin</artifactId>
+			 <version>2.4.1</version>
+		</plugin>
+
+		<!-- install插件-->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-install-plugin</artifactId>
+			 <version>2.3.1</version>
+		</plugin>
+
+		<!-- deploy插件-->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-deploy-plugin</artifactId>
+			 <version>2.5</version>
+		</plugin>
+
+		<!-- eclipse插件 -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-eclipse-plugin</artifactId>
+			<version>2.8</version>
+			<configuration>
+				<sourceExcludes>
+					<sourceExclude>**/.svn/</sourceExclude>
+				</sourceExcludes>
+				<downloadSources>true</downloadSources>
+				<ajdtVersion>none</ajdtVersion>
+			</configuration>
+		</plugin>
+
+		<!-- jar插件 -->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-jar-plugin</artifactId>
+			 <version>2.3.1</version>
+			 <configuration>
+					 <archive>
+							 <manifest>
+									 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+									 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							 </manifest>
+					 </archive>
+			 </configuration>
+		</plugin>
+
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-source-plugin</artifactId>
+			 <version>2.1.2</version>
+		</plugin>
+
+		<!-- dependency插件 -->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-dependency-plugin</artifactId>
+			 </plugin>
+
+		<!-- ant插件 -->
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-antrun-plugin</artifactId>
+			 </plugin>
+
+		<!-- cobertura插件 -->
+		<plugin>
+			 <groupId>org.codehaus.mojo</groupId>
+			 <artifactId>cobertura-maven-plugin</artifactId>
+			 <version>2.4</version>
+		</plugin>
+
+		<!-- test插件 -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.6</version>
+			<configuration>
+				<includes>
+					<include>**/*Test.java</include>
+				</includes>
+			</configuration>
+		</plugin>
+		
+		<plugin>  
+    <artifactId>maven-compiler-plugin</artifactId>  
+    <configuration>  
+        <source>1.6</source>  
+    <target>1.6</target>  
+    <showDeprecation>true</showDeprecation>  
+    <showWarnings>true</showWarnings>  
+    </configuration>  
+</plugin> 
+		
+		<!-- jetty插件 --> 
+		 <plugin>
+             <groupId>org.mortbay.jetty</groupId>
+             <artifactId>maven-jetty-plugin</artifactId>
+             <version>${jetty.version}</version>
+             <configuration>
+                 <contextPath>/</contextPath>
+                 <webDefaultXml>webdefault.xml</webDefaultXml>
+                 <connectors>
+                     <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                         <port>8899</port>
+                     </connector>
+                 </connectors>
+                 <scanIntervalSeconds>10</scanIntervalSeconds>
+             </configuration>
+         </plugin>
+       <!--  
+           <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>hibernate3-maven-plugin</artifactId>
+            <version>2.2</version>
+            <executions>
+                <execution>
+                    <id>hbm2cfgxml</id>
+                    <phase>generate-resources</phase>
+                    <goals>
+                        <goal>hbm2cfgxml</goal>
+                    </goals>
+                    <inherited>false</inherited>
+                    <configuration>
+                        <components>
+                            <component>
+                                <name>hbm2cfgxml</name>
+                                <implementation>jdbcconfiguration</implementation>
+                            </component>
+                        </components>
+                        <componentProperties>
+                            <packagename>com.mich.erp.beautyshop.bean</packagename>
+                        </componentProperties>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>hbm2hbmxml</id>
+                    <phase>generate-resources</phase>
+                    <goals>
+                        <goal>hbm2hbmxml</goal>
+                    </goals>
+                    <inherited>false</inherited>
+                    <configuration>
+                        <components>
+                            <component>
+                                <name>hbm2hbmxml</name>
+                                <outputDirectory>target/classes/</outputDirectory>
+                            </component>
+                        </components>
+                        <componentProperties>
+                            <packagename>com.mich.erp.beautyshop.bean</packagename>
+                        </componentProperties>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>hbm2java</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>hbm2java</goal>
+                    </goals>
+                    <inherited>false</inherited>
+                    <configuration>
+                        <components>
+                            <component>
+                                <name>hbm2java</name>
+                                <outputDirectory>target/classes/</outputDirectory>
+                            </component>
+                        </components>
+                        <componentProperties>
+                            <packagename>com.mich.erp.beautyshop.bean</packagename>
+                            <configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile>
+                        </componentProperties>
+                    </configuration>
+                </execution>
+
+            </executions>
+            <dependencies>
+               <dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>5.1.5</version>
+				</dependency>
+            </dependencies>
+        </plugin>
+        -->
+      
+    </plugins>
+    <defaultGoal>compile</defaultGoal>
+      	<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+					<exclude>**/.svn/*</exclude>
+				</excludes>
+			</resource>
+			<resource>
+			    <directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+					<exclude>**/.svn/*</exclude>
+				</excludes>
+			</resource>
+	
+		</resources>
+      	<pluginManagement>
+      		<plugins>
+      			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+      			<plugin>
+      				<groupId>org.eclipse.m2e</groupId>
+      				<artifactId>lifecycle-mapping</artifactId>
+      				<version>1.0.0</version>
+      				<configuration>
+      					<lifecycleMappingMetadata>
+      						<pluginExecutions>
+      							<pluginExecution>
+      								<pluginExecutionFilter>
+      									<groupId>
+      										org.codehaus.mojo
+      									</groupId>
+      									<artifactId>
+      										hibernate3-maven-plugin
+      									</artifactId>
+      									<versionRange>
+      										[2.2,)
+      									</versionRange>
+      									<goals>
+      										<goal>hbm2java</goal>
+      										<goal>hbm2cfgxml</goal>
+      										<goal>hbm2hbmxml</goal>
+      									</goals>
+      								</pluginExecutionFilter>
+      								<action>
+      									<ignore></ignore>
+      								</action>
+      							</pluginExecution>
+      						</pluginExecutions>
+      					</lifecycleMappingMetadata>
+      				</configuration>
+      			</plugin>
+      		</plugins>
+      	</pluginManagement>
+	</build>  
+ 
+  <properties>
+		<issues.projectKey>information-manager</issues.projectKey>
+		<log4j.version>1.2.15</log4j.version>
+		<jetty.version>6.1.22</jetty.version>
+    </properties>
+  
+</project>

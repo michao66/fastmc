@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+		
+		<!-- 设置需要进行Spring注解扫描的类包 -->
+		<context:component-scan base-package="com.slsoft" >
+			<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		</context:component-scan>
+		
+		<bean id="freemarkerResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+        <property name="order" value="1"/>  
+        <property name="suffix" value=".ftl"/>  
+        <property name="contentType" value="text/html;charset=utf-8"/>  
+        <property name="exposeRequestAttributes">  
+            <value>true</value>   
+        </property>  
+        <property name="exposeSessionAttributes">  
+           <value>true</value>
+        </property>  
+        <property name="viewClass">  
+            <value>org.springframework.web.servlet.view.freemarker.FreeMarkerView</value>  
+        </property>  
+    </bean> 
+    
+     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		  p:viewClass="org.springframework.web.servlet.view.JstlView" p:prefix="/WEB-INF/jsp" p:suffix=".jsp" p:order="2"/> 
+		  
+	<bean id="multipartResolver"  
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"  
+          p:defaultEncoding="utf-8" /> 
+          
+   <!--        
+   	<bean id="baseInterceptor"  class="com.mich.erp.core.servlet.BaseInterceptor"/>  
+     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">  
+	    <property name="interceptors">  
+	        <list>  
+	            <ref bean="baseInterceptor"/>  
+	        </list>  
+	    </property>  
+	   </bean>            
+     -->      
+	
+	
+    
+	<!--配置验证登陆的拦截器.	-->
+	<mvc:interceptors>
+			<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean id="openSessionInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
+				<property name="entityManagerFactory" ref="entityManagerFactory" />
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	
+	<!-- 对某些静态资源，如css,图片等进行过滤 ,有引用 "/js/**" 的路径引用转到工程的/js/目录取资源
+	<mvc:resources mapping="/images/**" location="/images/" />
+	-->
+		
+</beans>

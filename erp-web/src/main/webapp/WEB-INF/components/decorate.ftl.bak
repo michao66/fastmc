@@ -1,0 +1,8 @@
+<#assign parameters = tag.parameters/>
+<th>${tag.label?default("&nbsp;")}</th><#rt/>
+<td <#if tag.singlecolumn==true>colspan="${tag.colspan}"</#if> vatop rowform >
+ <#include "${tag.type}.ftl"/><#rt/><#if parameters.caption??>${parameters.caption}</#if>
+</td><#rt/>
+ <label for="${tag.id?default("")?html}"></label>
+
+

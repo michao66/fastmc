@@ -1,0 +1,2 @@
+<th>${tag.label?default("&nbsp;")}:</th><#rt/>
+<td <#if tag.singlecolumn==true>colspan="${tag.colspan}"</#if> vatop rowform >

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-4-24 7:11:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.mich.erp.grant.bean.BaseUser" table="base_user" catalog="beautyshop">
+        <id name="id" type="string">
+            <column name="id" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginName" type="string">
+            <column name="loginName" length="45" />
+        </property>
+        <property name="realName" type="string">
+            <column name="realName" length="45" />
+        </property>
+        <property name="lastLoginTime" type="string">
+            <column name="lastLoginTime" length="45" />
+        </property>
+        <property name="lastLoginIp" type="string">
+            <column name="lastLoginIP" length="45" />
+        </property>
+        <property name="departmentId" type="string">
+            <column name="departmentId" length="45" />
+        </property>
+        <property name="dateModified" type="string">
+            <column name="date_modified" length="45" />
+        </property>
+        <property name="isAdmin" type="string">
+            <column name="is_admin" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

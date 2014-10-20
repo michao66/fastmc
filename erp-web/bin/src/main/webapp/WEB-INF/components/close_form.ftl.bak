@@ -1,0 +1,70 @@
+<tfoot>
+    <tr>
+        <td colspan="2"><a href="JavaScript:void(0);" class="btn" id="submitBtn"><span>提交</span></a></td>
+     </tr>
+   </tfoot>
+</table>
+<div class="blank"></div><p id="ajaxStatus"></p><div class="blank"></div>
+</form>
+ <script type="text/javascript">
+  <!--
+var options = {
+	     target: '#${tag.id}',
+	     dataType: "json",
+	     beforeSubmit: function(data) {
+		  $('#${tag.id}').mask();
+	     },
+	     success: function(responseText, statusText, xhr, $form) {
+	          $('#${tag.id}').mask('hide');
+		  window.GETWIN($('#${tag.id}')).dialog("close");
+		  messager.show({title:'提示',msg:'操作成功。'});
+	     }
+              
+	}
+
+$(function(){ 
+        $('#${tag.id}').bind('submit', function() {
+		$(this).ajaxSubmit(options);
+		return false; // <-- important!
+	 });
+
+	$("#submitBtn").click(function(){
+		if($("#${tag.id}").valid()){
+		   $("#${tag.id}").submit();
+		}
+	});
+
+	$('#${tag.id}').validate({
+		errorPlacement: function(error, element){
+		        error.appendTo( element.parent() );
+
+		},
+		success: function(label){
+		    label.addClass('valid');
+		},
+		onfocusout : false,
+		onkeyup    : false,
+		rules : {
+		  <#list tag.validators as bean>
+		    <#assign roleKey = bean.validatorValue/>
+                    <#if bean_index==0>
+		      ${bean.id}:{<#rt/><#list roleKey?keys as v> <#if v_index==0> ${bean.validatorValue[v]} <#else>,${bean.validatorValue[v]}</#if></#list>}
+		    <#else>
+                     ,${bean.id}:{<#rt/><#list roleKey?keys as v> <#if v_index==0> ${bean.validatorValue[v]} <#else>,${bean.validatorValue[v]}</#if></#list>}
+		    </#if>
+                 </#list>
+		},
+		messages : {
+		<#list tag.validators as bean>
+		    <#assign roleKey = bean.validatorValue/>
+		    <#if bean_index==0>
+		      ${bean.id}:{<#rt/><#list roleKey?keys as v> <#if v_index==0> ${v}:'${bean.message}' <#else> ,${v}:'${bean.message}'</#if></#list>}
+		    <#else>
+		     ,${bean.id}:{<#rt/><#list roleKey?keys as v> <#if v_index==0> ${v}:'${bean.message}' <#else> ,${v}:'${bean.message}'</#if></#list>}
+		    </#if>
+                 </#list>
+		}
+	    });
+ });
+  //-->
+ </script>

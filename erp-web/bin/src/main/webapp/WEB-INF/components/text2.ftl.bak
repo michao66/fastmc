@@ -1,0 +1,29 @@
+<#assign parameters = tag.parameters/>
+<th class="required">${tag.label}:</th><#rt/>
+  <td <#if tag.singlecolumn==true>colspan="${tag.colspan}"</#if> vatop rowform >
+     <input type="text" class="txt" <#rt/>
+         name="${tag.id?default("")?html}"<#rt/>
+	 <#if parameters.width??>
+	   style="width:${parameters.width?html}px;"<#rt/>
+	 </#if>
+	<#if parameters.size??>
+	  size="${parameters.size?html}"<#rt/>
+	</#if>
+	<#if parameters.maxlength??>
+	  maxlength="${parameters.maxlength?html}"<#rt/>
+	</#if>
+	<#if parameters.id??>
+	 id="${parameters.id?html}"<#rt/>
+	</#if>
+	<#if parameters.readonly?default(false)>
+	 readonly="readonly"<#rt/>
+	</#if>
+	<#if inputValue??>
+	  value="${inputValue?html}"<#rt/>
+	</#if>
+	<#include "scripting-events.ftl"/>
+     />
+       </td><#rt/>
+     <label for="${tag.id?default("")?html}"></label>
+
+

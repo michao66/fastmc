@@ -1,0 +1,25 @@
+<#assign parameters = tag.parameters/>
+
+<input  class="easyui-combogrid"  name="${tag.id?default("")?html}"<#rt/>
+<#if parameters.id??>
+id="${parameters.id?html}"<#rt/>
+</#if>
+<#if parameters.width??>
+  style="width:${parameters.width?html}px;"<#rt/>
+</#if>
+ data-options="url:'${base}${parameters.url?html}',
+   panelWidth:450,   
+   value:'006',   
+   idField:'id',   
+   textField:'supplierName', 
+   columns:[[   
+     {field:'code',title:'编码',width:60},   
+     {field:'supplierName',title:'供应商名称',width:100}
+   ]]"<#rt/>
+/><#rt/>
+<#if inputValue??>
+<script type="text/javascript"><#rt/>
+ $(document).ready(function () {<#rt/>
+ $('#${parameters.id?html}').combogrid('setValue', '${inputValue?html}'); <#rt/>
+});</script>
+</#if>

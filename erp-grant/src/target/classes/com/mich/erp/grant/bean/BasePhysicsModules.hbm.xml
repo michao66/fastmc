@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-4-24 7:11:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.mich.erp.grant.bean.BasePhysicsModules" table="base_physics_modules" catalog="beautyshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="moduleName" type="string">
+            <column name="module_name" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" />
+        </property>
+        <property name="isForegin" type="string">
+            <column name="is_foregin" length="2" />
+        </property>
+        <property name="moduleUrl" type="string">
+            <column name="module_url" length="145" />
+        </property>
+        <property name="pid" type="java.lang.Integer">
+            <column name="pid" />
+        </property>
+        <property name="iconCls" type="string">
+            <column name="iconCls" length="45" />
+        </property>
+        <property name="sortNum" type="java.lang.Integer">
+            <column name="sortNum" />
+        </property>
+    </class>
+</hibernate-mapping>

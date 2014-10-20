@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-4-24 7:11:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.mich.erp.grant.bean.BaseCompany" table="base_company" catalog="beautyshop">
+        <id name="id" type="string">
+            <column name="id" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyName" type="string">
+            <column name="company_name" length="45" not-null="true">
+                <comment>&#185;&#171;&#203;&#190;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="companyTel" type="string">
+            <column name="company_tel" length="45">
+                <comment>&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+        <property name="companyAddr" type="string">
+            <column name="company_addr" length="45">
+                <comment>&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="companyLawperson" type="string">
+            <column name="company_lawperson" length="45">
+                <comment>&#183;&#168;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="companyBank" type="string">
+            <column name="company_bank" length="45">
+                <comment>&#210;&#248;&#208;&#208;</comment>
+            </column>
+        </property>
+        <property name="companyAccounts" type="string">
+            <column name="company_accounts" length="45">
+                <comment>&#210;&#248;&#208;&#208;&#186;&#197;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

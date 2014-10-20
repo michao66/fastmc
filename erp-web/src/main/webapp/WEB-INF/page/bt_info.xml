@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="btinfo">
+<form id="btxmForm"  
+      saveAction="btinfo/btxm/doCreate.action"
+	  entity="com.slsoft.btinfo.entify.BTXM">
+	  <validate id="id" value="*" message="补贴项目编码不能为空"  />
+	  <validate id="name" value="*" message="补贴项目名称不能为空"/>
+	  
+	  <formItem label="项目编码" type="text" id="id" updateOnlyRead="true"/>
+	  <formItem label="项目名称" type="text" id="name" />
+	  <formItem  type="hidden" id="parent"/>
+</form>
+
+<form id="xzqyForm"  
+      saveAction="btinfo/xzqy/doCreate.action"
+	  entity="com.slsoft.btinfo.entify.XZQY">
+	  <validate id="id" value="*" message="行政编码不能为空" />
+	  <validate id="name" value="*" message="行政名称不能为空"/>
+	  
+	  <formItem label="行政编码" type="text" id="id"  updateHidde="true"/>
+	  <formItem label="行政名称" type="text" id="name" />
+	  <formItem label="类别" type="combobox" id="orgType" >
+			 <attribute value="width=200" />
+			<itemValue value="list:0=地区|1=单位" />
+		</formItem>
+</form>
+<form id="btfieldForm"   column="2"
+      saveAction="btinfo/btfield/doCreate.action"
+	  entity="com.slsoft.btinfo.entify.BTField">
+	   <validate id="id" value="*" message="字段编码不能为空"/>
+	   <validate id="lable" value="*" message="字段名称不能为空"/>
+	   <validate id="orderNum" value="Z" message="字段编码只能为整数"/>
+	  
+	  <formItem label="补贴项目" type="combobox" id="project" >
+			<itemValue value="method:loader=btxmLoad" />
+		</formItem>
+	  <formItem label="字段序号" type="text" id="orderNum" />
+	  
+	  <formItem label="字段编码" type="combobox" id="fildId" >
+	  	 <itemValue value="list:name=(用于姓名)|cardcode=用于身份证号|departid=用于地域编码|project=用于项目类型|year=用于发放日期|phone=用于手机号|money=金额|population=保障人数|summoney=累计金额|nation=用于民族|bank=开户银行|bankaccount=用于开户行账号|address=用于地址|postcode=用于邮编|minimumcode=低保号码|hukou=户口性质|remark=备注|field1=field1(数值扩展字段)|field2=field2(数值扩展字段)|field3=field13(数值扩展字段)|field4=field14(数值扩展字段)|field5=field5(字符扩展字段(255位)|field6=field6(字符扩展字段255位)|field7=field7(字符扩展字段255位)|field8=field8(字符扩展字段255位)|field9=field9(字符扩展字段255位)" />
+	  </formItem>	
+	  <formItem label="字段名称" type="text" id="lable" />
+	  <formItem label="字段类型" type="combobox" id="type">
+		   <itemValue value="list:text=文本框|hidden=隐藏框|date=日期框|combobox=下拉列表框"  />
+	  </formItem>
+	  <formItem label="验证类型" type="combobox" id="attribute">
+			<itemValue value="list:none=无验证|*=必填|N=数字|Z=整数|E=邮件|D=日期" />
+	  </formItem>
+	  
+	  <formItem  type="hidden" id="id"/>
+	  
+</form>	 
+
+   <form id="btxxImpForm"   saveAction="btinfo/btxx/doimp.action">
+   	       <formItem  type="file" id="myUpload"/>
+   	       <formItem  type="hidden" id="projectId"/>
+   </form>
+   
+ 
+</page>

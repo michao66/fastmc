@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-4-24 7:11:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.mich.erp.grant.bean.BaseAccinfo" table="base_accinfo" catalog="beautyshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="curryear" type="java.lang.Integer">
+            <column name="curryear">
+            </column>
+        </property>
+        <property name="currmon" type="java.lang.Integer">
+            <column name="currmon">
+            </column>
+        </property>
+        <property name="startdate" type="java.lang.Integer">
+            <column name="startdate">
+            </column>
+        </property>
+        <property name="mustcheck" type="string">
+            <column name="mustcheck" length="2">
+            </column>
+        </property>
+        <property name="sameuser" type="string">
+            <column name="sameuser" length="2">
+            </column>
+        </property>
+        <property name="step0" type="java.lang.Integer">
+            <column name="step0">
+            </column>
+        </property>
+        <property name="step1" type="java.lang.Integer">
+            <column name="step1">
+            </column>
+        </property>
+        <property name="step2" type="java.lang.Integer">
+            <column name="step2">
+            </column>
+        </property>
+        <property name="step3" type="java.lang.Integer">
+            <column name="step3">
+            </column>
+        </property>
+        <property name="step4" type="java.lang.Integer">
+            <column name="step4">
+            </column>
+        </property>
+        <property name="step5" type="java.lang.Integer">
+            <column name="step5">
+            </column>
+        </property>
+        <property name="step6" type="java.lang.Integer">
+            <column name="step6">
+            </column>
+        </property>
+        <property name="step7" type="java.lang.Integer">
+            <column name="step7">
+            </column>
+        </property>
+        <property name="step8" type="java.lang.Integer">
+            <column name="step8">
+            </column>
+        </property>
+        <property name="step9" type="java.lang.Integer">
+            <column name="step9">
+            </column>
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2">
+            </column>
+        </property>
+        <property name="comid" type="java.lang.Integer">
+            <column name="comid">
+                <comment>&#207;&#224;&#185;&#216;&#185;&#171;&#203;&#190;ID</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
