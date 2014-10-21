@@ -94,8 +94,8 @@ var Global = function() {
            $("#a_passwd").click(function() {
         	   Global.popWin("修改密码",WEB_ROOT+"/admin/profile/passwd.action",400,300,null);
            });
-            $("#a-lock-screen").click(function() {
-				 
+           
+           $("#a-lock-screen").click(function() {				 
 				  $.backstretch([WEB_ROOT+"/resource/img/bg/1.jpg",
 				                 WEB_ROOT+"/resource/img/bg/2.jpg",
 				                 WEB_ROOT+"/resource/img/bg/3.jpg",
@@ -103,8 +103,7 @@ var Global = function() {
 								fade : 1000,
 								duration : 8000
 							});
-					$(".layout-panel").hide();
-					
+					$(".layout-panel").hide();		
 					$("#form-unlock").find(":text").focus().val("");
 					$("#page-lock").show();
 					$("#form-unlock").find("input").first().focus();
@@ -112,8 +111,7 @@ var Global = function() {
 					$("body").ajaxPostURL({
 						url : WEB_ROOT + "/admin/lock.action",
 						confirmMsg : false
-					})
-					
+					});
 			});
              $("#form-unlock").submit(function(g) {
 				g.preventDefault();
@@ -129,19 +127,31 @@ var Global = function() {
 						});
 				return false
 			});
-			$("#themeList").theme({themeBase:"/resource/plugins/easyui/themes"});
+			$("#themeList").theme({themeBase:WEB_ROOT+"/resource/plugins/easyui/themes"});
 
 			$("#a-logout").click(function() {
                $.messager.confirm('提示', "确认注销登录吗？", function(r){
 					if (r){
-						window.location.href = "j_spring_security_logout"
+						window.location.href = WEB_ROOT+"/j_spring_security_logout"
 					}
 				});
 			});
-	
+	        jQuery("body").on("click", 'button.btnLook',function(i) {
+	              var h = $(this);
+	              defaults={title:"选择窗口",width:600,height:400,dataGridId:undefined,idField:undefined,callfun:undefined};
+	              var options = $.extend({},defaults,$.parser.parseOptions(this,["title","width","height","dataGridId","dataUrl","callfun","idField","target_to"]));
+	              
+	              if(!options.dataUrl){
+	                   Global.notify("找到选择窗口的URL");
+	                   return true;
+	              }
+	              Global.popWin(options.title,options.dataUrl,options.width,options.height,options.callfun);
+	              	
+				
+			});	
 			jQuery("body").on("click", 'a[data-toggle="win-edit"]',
 				function(i) {
-					i.stopPropagation();
+					i.preventDefault();
 					var h = $(this);
 	                defaults={title:"编辑窗口",width:600,height:400,dataGridId:undefined,idField:undefined,callfun:undefined,target_to:"win"};
 	             
@@ -169,7 +179,7 @@ var Global = function() {
 				});
 			jQuery("body").on("click", 'a[data-toggle="data-del"]',
 				function(i) {	
-					i.stopPropagation();
+					i.preventDefault();
 					var h = $(this);
 					dataGridId = (h.attr("dataGridId")?h.attr("dataGridId"):undefined);
 					dataUrl = h.attr("dataUrl");

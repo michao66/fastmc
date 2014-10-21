@@ -2,14 +2,14 @@
 <%@include file="/WEB-INF/jsp/common/include.inc.jsp"%>
 
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<html lang="zh-CN">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>控制台</title>
 		<script type="text/javascript" src="${base}/resource/plugins/My97DatePicker/WdatePicker.js"></script>
-		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/easyui/themes/default/easyui.css">
-		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/easyui/themes/icon.css">
-		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/select2/select2.css">
+
 		<script type="text/javascript" src="${base}/resource/plugins/easyui/jquery-1.8.0.min.js"></script>
 		<script type="text/javascript" src="${base}/resource/plugins/easyui/jquery.easyui.min.js"></script>
 	    <script type="text/javascript" src="${base}/resource/plugins/easyui/locale/easyui-lang-zh_CN.js"></script>
@@ -33,21 +33,29 @@
 		<script type="text/javascript" src="${base}/resource/js/jquery.form.js"></script>
         
         <script type="text/javascript" src="${base}/resource/js/page.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/jqgrid/css/ui.jqgrid.css">
+        <link rel="stylesheet" type="text/css" href="${base}/resource/plugins/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/easyui/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/select2/select2.css">
 		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/bootstrap/css/bootstrap-responsive.min.css">
 		
 		<link rel="stylesheet" type="text/css" href="${base}/resource/plugins/fontAwesome/css/font-awesome.min.css">
 		<!--[if IE 7]>
-		<link rel="stylesheet" href="a${base}/resource/plugins/fontAwesome/css/font-awesome-ie7.min.css">
+		<link rel="stylesheet" href="{base}/resource/plugins/fontAwesome/css/font-awesome-ie7.min.css">
 		<![endif]-->
 	   <link rel="stylesheet" type="text/css" href="${base}/resource/plugins/poshytip-1.2/tip-yellow/tip-yellow.css">
       
 		<link rel="stylesheet" type="text/css" href="${base}/resource/css/style-metro.css">
+		
 		<link rel="stylesheet" type="text/css" href="${base}/resource/css/index.css">
+	
         <link rel="stylesheet" type="text/css" href="${base}/resource/css/lock.css">
 		<script type="text/javascript" src="${base}/resource/plugins/bootstrap/js/bootstrap.min.js"></script> 
-
+        <style type="text/css">
+				.ie8 .row-fluid [class*="span"] {
+    min-height: 20px !important;
+}
+        </style>
 		
 		<script type="text/javascript">
 		  var WEB_ROOT = "${base}";

@@ -1,27 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/common/include.inc.jsp"%>
+<div class="easyui-layout"  style="width:100%;height:100%" data-options="border:false,fit:true">
+<div data-options="region:'center'" border="false"> 
 
-<div  class="easyui-panel" title="图表分析" style="padding:10px;" data-options="collapsible:true">
-<div class="row-fluid">
+
+       <div class="row-fluid">
 				<div class="span12">
 					<form action="#" method="get" class="form-inline" data-grid-search="btxxTable" id="queryChartForm">
-					        <functionTag:comboxTag id="projectId"  attribute="class=input-xlarge" itemValue="method:loader=configBtXMload"/>
-							
-							<span class="input-append">
-								<button class="btn green" type="submmit">
-									<i class="icon-search"></i>&nbsp; 查&nbsp;询
-								</button>
-								
-							</span>
-					
-
-					</form>
-				</div>
-			</div>
-	<div id="chartContainer"/>
+					        <functionTag:comboxTag id="projectId"  attribute="class=input-xlarge" itemValue="method:loader=configBtXMload"/>		
+				    	<span class="input-append">
+						<button class="btn green" type="submmit">
+							<i class="icon-search"></i>&nbsp; 查&nbsp;询
+						</button>				
+				</span>
+			</form>
+		</div>
+		<div id="chartContainer"></div>
+  </div>
 </div>
-
-
 <script type="text/javascript">
 <!--
 $(function () {

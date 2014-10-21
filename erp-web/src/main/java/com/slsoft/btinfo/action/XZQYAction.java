@@ -56,8 +56,8 @@ public class XZQYAction extends BaseController<XZQY, String> {
 		GroupPropertyFilter groupPropertyFilter = GroupPropertyFilter.buildDefaultOrGroupFilter();
         groupPropertyFilter.append(new PropertyFilter(MatchType.BW, "name",q_str));
         groupPropertyFilter.append(new PropertyFilter(MatchType.BW, "id",q_str));
-        groupPropertyFilter.append(new PropertyFilter(MatchType.NC, "pinyin",q_str));  
-		List<XZQY> data = xzqyService.findByFilters(groupPropertyFilter, sort, 10);
+        groupPropertyFilter.append(new PropertyFilter(MatchType.BW, "pinyin",q_str));  
+		List<XZQY> data = xzqyService.findByFilters(groupPropertyFilter, sort, 20);
 		JSONArray jsonData = new JSONArray();
 		for(XZQY d : data){
 			JSONObject rowData = new JSONObject();

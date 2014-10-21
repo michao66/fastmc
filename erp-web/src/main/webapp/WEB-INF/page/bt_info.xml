@@ -14,10 +14,14 @@
 <form id="xzqyForm"  
       saveAction="btinfo/xzqy/doCreate.action"
 	  entity="com.slsoft.btinfo.entify.XZQY">
-	  <validate id="id" value="*" message="行政编码不能为空" />
 	  <validate id="name" value="*" message="行政名称不能为空"/>
 	  
-	  <formItem label="行政编码" type="text" id="id"  updateHidde="true"/>
+	  <formItem label="行政编码" type="text" id="id">
+	      <attribute value="readonly=true" />
+	  </formItem>
+	  <formItem label="上级机构" type="lookup" id="pid">
+	  </formItem>
+	  
 	  <formItem label="行政名称" type="text" id="name" />
 	  <formItem label="类别" type="combobox" id="orgType" >
 			 <attribute value="width=200" />

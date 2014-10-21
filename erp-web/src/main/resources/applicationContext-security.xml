@@ -20,14 +20,15 @@
     <http pattern="**/*.jpg" security="none" />
    
   
-    <http access-denied-page="/common/errors.jsp">
+    <http use-expressions="true"   access-denied-page="/common/errors.jsp">
         <form-login login-page="/pub/signin.action" authentication-success-handler-ref="authenticationSuccessHistHandler" />
         <!-- Set the request cache -->
         <request-cache ref="requestCache" />
         <remember-me key="fastmc" token-validity-seconds="3600" data-source-ref="dataSource"
             authentication-success-handler-ref="authenticationSuccessHistHandler" />
-        <session-management invalid-session-url="/pub/signin.action">
-            <concurrency-control max-sessions="1000" error-if-maximum-exceeded="true" />
+        <session-management invalid-session-url="/pub/signin.action"><!-- 会话失效转向地址 -->
+            <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+            <!-- max-sessions是设置单个用户最大并行会话数；error-if-maximum-exceeded是配置当用户登录数达到最大时是否报错，设置为true时会报错且后登录的会话不能登录，默认为false不报错且将前一会话置为失效。  -->
         </session-management>
         <custom-filter ref="securityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
         <logout logout-success-url="/pub/signin.action" />

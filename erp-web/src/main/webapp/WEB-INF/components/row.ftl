@@ -1,1 +1,1 @@
-<div class="row-fluid"><#rt/>
+<div class="row-fluid" ><#rt/>

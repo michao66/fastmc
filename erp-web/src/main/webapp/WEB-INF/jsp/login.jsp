@@ -8,6 +8,8 @@
 <%@page import="org.springframework.security.web.*"%>
 <%@page import="org.springframework.security.authentication.*"%>
 <%@page import="cn.fastmc.web.captcha.BadCaptchaException"%>
+<%@page import="org.springframework.security.web.authentication.session.SessionAuthenticationException"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -114,6 +116,8 @@ label.error {
 											msg = "验证码校验失败，请重试!";
 										} else if (e instanceof BadCredentialsException) {
 											msg = "登录信息错误,请重新输入!";
+										} else if (e instanceof SessionAuthenticationException){
+										    msg = "当前用户已经登录不能重复登录,请联系管理员!";
 										}
 										session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 						%>

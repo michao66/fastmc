@@ -7,9 +7,11 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +25,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -44,6 +47,8 @@ import cn.fastmc.core.pagination.PropertyFilter;
 import cn.fastmc.core.utils.FunctionUtils;
 import cn.fastmc.core.utils.RequestUtils;
 import cn.fastmc.core.utils.ResponseUtils;
+import cn.fastmc.sqlconfig.query.BaseQuery;
+import cn.fastmc.viewconfig.components.Form;
 
 
 
@@ -59,7 +64,8 @@ public abstract class BaseController<T extends PersistableEntity<ID>, ID extends
 	@Autowired
 	protected MessageSource messageSource;
 	
-
+	@Resource(name="jdbcQuery")
+	protected BaseQuery nativeQuery;
 	
 	/** 泛型对应的Class定义 */
     protected Class<T> entityClass;
@@ -129,9 +135,19 @@ public abstract class BaseController<T extends PersistableEntity<ID>, ID extends
 	         }
 	        return sort;
 	    }
-		
+		/****
+		 * 用于兼容SQL配置文件 方法的分页查询
+		 */
+		@SuppressWarnings("unchecked")
+		protected Page<?> findByPage(Pageable pageable,Map<String,String> queryparam,BaseQuery baseQuery){
+				Assert.notNull(queryparam.get(PAGINH_SQL), "pagingSql name must not be null");
+				Assert.notNull(queryparam.get(PAGING_COUNTSQL), "pagingCountSql name must not be null");
+				List<?> pageData = (List<?>)baseQuery.findPages(queryparam.get(PAGINH_SQL), queryparam, (pageable.getPageNumber()*pageable.getPageSize()),pageable.getPageSize());
+				long pages = baseQuery.findCount(queryparam.get(PAGING_COUNTSQL), queryparam);
+				return new PageImpl(pageData,pageable,pages);
+	   }
 		/**
-		 * 本地SQL查询分页列表显示数据
+		 * 本地SQL查询分页
 		 * @param queryparam 查询参数
 		 * @param request
 		 * @param response
@@ -139,9 +155,7 @@ public abstract class BaseController<T extends PersistableEntity<ID>, ID extends
 		@RequestMapping("findByNativePage")
 		public void  findByNativePage(@RequestParam Map<String,String> queryparam,HttpServletRequest request,HttpServletResponse response){
 			Pageable pageable = PropertyFilter.buildPageableFromHttpRequest(request);
-			Assert.notNull(queryparam.get("pagingSql"), "sqlId name must not be null");
-			Assert.notNull(queryparam.get("pagingCountSql"), "sqlId name must not be null");
-			Page<?> page =  this.getEntityService().findPageByNativeSql(queryparam.get("pagingSql"),queryparam.get("pagingCountSql"),queryparam,pageable);
+			Page<?> page = findByPage( pageable,queryparam, getNativeQuery());;
 			String strjson = null;
 	    	try {
 				strjson = FunctionUtils.encodeData2Json(page.getContent(), page.getTotalElements());
@@ -162,7 +176,7 @@ public abstract class BaseController<T extends PersistableEntity<ID>, ID extends
 	    public  void findByJpaPage(HttpServletRequest request,HttpServletResponse response) {
 	        //
 	    	Pageable pageable = PropertyFilter.buildPageableFromHttpRequest(request);
-        
+
 	    	GroupPropertyFilter groupFilters = GroupPropertyFilter.buildFromHttpRequest(entityClass, request);
 	        Page<T> page = this.getEntityService().findByPage( pageable,groupFilters);
 	        String strjson = null;
@@ -432,7 +446,13 @@ public abstract class BaseController<T extends PersistableEntity<ID>, ID extends
 			this.templatePath = templatePath;
 		}
 
-		
+		protected BaseQuery getNativeQuery() {
+			return nativeQuery;
+		}
+
+		protected void setNativeQuery(BaseQuery nativeQuery) {
+			this.nativeQuery = nativeQuery;
+		}
 
 
 }

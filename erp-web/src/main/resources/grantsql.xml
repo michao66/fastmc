@@ -49,7 +49,7 @@
       from cms_bt_btxx xx
       <include refid="whereBTXX" />
   </select>
-<!--  
+  
   <select id="btxxPage" entity="com.slsoft.btinfo.entify.BTXX">
   	  select id
       <if test="name != null and name != ''">,name</if>
@@ -79,12 +79,12 @@
       <if test="field8 != null and field8 != ''">,field9</if>
       from cms_bt_btxx xx
       <include refid="whereBTXX" />
-  </select>-->
+  </select>
   <select id="btxxCount" >
       SELECT count(*) FROM cms_bt_btxx
-	  <include refid="whereBTXX" />
   </select>
-    <select id="areaNumChart">
+  <!-- substr(t.departid,0,6) -->
+  <select id="areaNumChart">
      select sum(t.money) data,x.name  from cms_bt_btxx t inner join cms_bt_xzqy x on x.id = substr(t.departid,0,6)
      where  project = #{projectId}
      group by x.name

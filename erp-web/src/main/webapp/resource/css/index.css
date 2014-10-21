@@ -55,7 +55,7 @@ a:hover {text-decoration:underline;}
 
 .e-link {font-size: 12px;text-decoration: none;color: #126499;font-family: Arial, sans-serif;}
 .control-label {margin-top: 2px;}
-.form-horizontal .control-label {width: 90px;}
+.form-horizontal .control-label {width: 95px;}
 .form-horizontal .controls { margin-left: 95px;}
 input,textarea,.uneditable-input { width: auto;}
 .container-fluid {padding-top:10px;padding-right:10px;padding-left:10px;}
@@ -65,11 +65,7 @@ input,textarea,.uneditable-input { width: auto;}
 span.required {color: red}
 .table thead tr th {font-weight: 400}
 .error-block {color: red;line-height: 10px}
-.has-error  {
-border-color: #b94a48;
--webkit-box-shadow: none;
-box-shadow: none;
-}
+.has-error  {border-color: #b94a48;-webkit-box-shadow: none;box-shadow: none;}
 
 
 

@@ -194,8 +194,9 @@ var groupWid = [];
 				dialog.find("div.dialog-content").html(data);
 			}
 			$.parser.parse(dialog);
-			var cancelBtn = $(dialog).find('button[type=button]');
-			if(cancelBtn && cancelBtn.hasClass('cancelBtn')){
+			var cancelBtn = $(dialog).find('button.cancelBtn');
+			if(cancelBtn ){
+				
 				cancelBtn.bind('click',function(event){
 					dialog.dialog("close");
 				})

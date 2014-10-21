@@ -28,9 +28,8 @@ public class BTXMService extends BaseService<BTXM, String> {
     protected SpringJpaDao<BTXM, String> getEntityDao() {
         return btxmDao;
     }
-    @SuppressWarnings("unchecked")
-    protected void preInsert(BTXM entity){    	
-		long count = btxmDao.count(Specifications.get("id", entity.getId()));
+    protected void preInsert(BTXM entity){
+    	long count = btxmDao.count(Specifications.get("id", entity.getId()));
 	   	if(count>0){
 	   	   throw new ServiceException("项目编号已存在,请重新输入!");
 	   	}
